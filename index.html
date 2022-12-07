@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Lotto</title>
+    <link rel="stylesheet" href="./lotto.css" />
+  </head>
+  <body>
+    <div id="content">
+      <div class="lotto_slide">
+        <div class="top_section">
+          <h1 class="title">슬기로운 엔카 생활</h1>
+          <button type="button" id="js-slide-prev" class="btn_change left hide">
+            이전 슬라이드
+          </button>
+          <button type="button" id="js-slide-next" class="btn_change right">
+            다음 슬라이드
+          </button>
+        </div>
+        <div class="slide_item active">
+          <div class="number_view">
+            <ul class="number_list">
+              <!-- <li>?</li>
+              <li>?</li>
+              <li>?</li>
+              <li>?</li>
+              <li>?</li>
+              <li>?</li>
+              <li>?</li>
+              <li>?</li>
+              <li>?</li>
+              <li>?</li> -->
+            </ul>
+          </div>
+          <div class="lotto_view">
+            <div class="lotto_paper js-only-paper">
+              <div class="paper_head">
+                <h2>추첨 번호</h2>
+                <p class="publish_date">실행일 : 2022/12/11 (목) 09:46:22</p>
+              </div>
+              <div class="paper_body">
+                <ul class="game_item">
+                  <li>?</li>
+                  <li>?</li>
+                  <li>?</li>
+                  <li>?</li>
+                  <li>?</li>
+                  <li>?</li>
+                  <li>?</li>
+                  <li>?</li>
+                  <li>?</li>
+                  <li>?</li>
+                </ul>
+              </div>
+              <div class="paper_foot">
+                <span>금액</span>
+                <strong>1,000원</strong>
+              </div>
+            </div>
+          </div>
+          <div class="btn_box">
+            <button type="button" id="js-create-number" class="btn_create">
+              추첨하기
+            </button>
+          </div>
+        </div>
+        <div class="slide_item">
+          <div class="lotto_view">
+            <div class="lotto_paper js-multi-paper">
+              <div class="paper_body">
+                <ul class="game_item">
+                  <li>?</li>
+                  <li>?</li>
+                  <li>?</li>
+                  <li>?</li>
+                  <li>?</li>
+                  <li>?</li>
+                </ul>
+                <ul class="game_item">
+                  <li>?</li>
+                  <li>?</li>
+                  <li>?</li>
+                  <li>?</li>
+                  <li>?</li>
+                  <li>?</li>
+                </ul>
+                <ul class="game_item">
+                  <li class="game_name">C</li>
+                  <li class="game_kind">자동</li>
+                  <li>?</li>
+                  <li>?</li>
+                  <li>?</li>
+                  <li>?</li>
+                  <li>?</li>
+                  <li>?</li>
+                </ul>
+                <ul class="game_item">
+                  <li class="game_name">D</li>
+                  <li class="game_kind">자동</li>
+                  <li>?</li>
+                  <li>?</li>
+                  <li>?</li>
+                  <li>?</li>
+                  <li>?</li>
+                  <li>?</li>
+                </ul>
+                <ul class="game_item">
+                  <li class="game_name">E</li>
+                  <li class="game_kind">자동</li>
+                  <li>?</li>
+                  <li>?</li>
+                  <li>?</li>
+                  <li>?</li>
+                  <li>?</li>
+                  <li>?</li>
+                </ul>
+              </div>
+              <div class="paper_foot">
+                <span>금액</span>
+                <strong>5,000원</strong>
+              </div>
+            </div>
+          </div>
+          <div class="btn_box">
+            <button type="button" id="js-multi-number" class="btn_create">
+              추첨하기
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./lotto.js"></script>
+  </body>
+</html>
