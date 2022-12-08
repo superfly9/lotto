@@ -1,89 +1,53 @@
 const lotto = {
   howManyPick : 10,
-  nthGame : 1,
-  ORIGINAL_BALL : 22,
-  REMAIN_BALL: 22,
-  SELECTED_BALL : 0,
-  isReset : false,
+  MAX_COUNT: 10,
   btn: document.getElementById('js-create-number'),
   multiBtn: document.getElementById('js-multi-number'),
   input : document.querySelector('#how_many'),
-  saveBtn : document.querySelector('#save'),
+  countDecideBtn : document.querySelector('#save'),
   createNumberRange() {
-    const MIN = 1, MAX = 320;
+    const MIN = 1, MAX = 378;
     let nums = [];
-
     for (let i = MIN; i <= MAX; i++) {
       nums.push(i);
     }
-
     return nums;
+  },
+  inputChangeHandler (e) {
+    if (e.target.value > this.MAX_COUNT) e.target.value = this.MAX_COUNT;
+  },
+  countDecideHandler () {
+    if (this.input.value > 10) return alert('최대 10개 까지 뽑을 수 있습니다')
+    this.howManyPick = this.input.value;
+    alert(`${this.howManyPick}개를 뽑을게요!`);
+    this.makeEl();
   },
   makeEl () {
     const numberList = document.querySelector('.number_list');
     const printTarget = [...numberList.children];
     printTarget.forEach(item => item && item.remove());
-
-    console.log('[이번 턴 갯수]:',this.howManyPick)
-    console.log('[이번 턴 몇 번째]:',this.nthGame)
     for (let i = 0;i< this.howManyPick;i++) {
-      const li  = document.createElement('li')
-      console.log('li',li,'[index]:',i)
+      const li  = document.createElement('li');
+      li.innerHTML ='?';
       numberList.appendChild(li)
     }
   },
-  reset () {
-    alert('모든 공을 뽑았습니다.초기화가 됩니다.')
-    this.nthGame = 1;
-    this.SELECTED_BALL = 0;
-    this.REMAIN_BALL = this.ORIGINAL_BALL;
-    this.howManyPick = 10;
-    this.isRest = true;
-    
-    const target = document.querySelector('.number_list');
-
-    [...target.children].forEach(item=>item && item.remove());
-
-    new Array(this.howManyPick).fill('?').forEach(item=>{
-      const li = document.createElement('li');
-      li.innerHTML = item;
-      target.appendChild(li)
-    })
-  },
   printNumber() {
-    if (this.nthGame === 3) {
-      this.howManyPick = 2;
-    }
-    if (this.nthGame > 3) return this.reset();
-
-    this.SELECTED_BALL += this.howManyPick;
-    this.REMAIN_BALL -= this.howManyPick;
     const nums = this.createNumber();
-
-    this.makeEl();
-    this.isReset = false;
-    this.nthGame+=1;
 
     const target = document.querySelector('.number_list');
     // const target2 = document.querySelector('.js-only-paper .game_item');
     const printTarget = [...target.children];
     // const paperTarget = [...target2.children];
-    console.log('[printTarget]:',printTarget)
     printTarget.forEach((item, index) => {item.innerHTML = nums[index]});
 
     target.classList.add('play');
     // document.querySelector('.js-only-paper').classList.add('play');
-    
     const id = setTimeout(() => {
       target.classList.remove('play');
       // document.querySelector('.js-only-paper').classList.remove('play');
       clearTimeout(id)
     },3000);
-    
-    // for (let i = 0; i < paperTarget.length; i++) {
-    //   paperTarget[i].innerHTML = nums[i];
-    //   printTarget[i].innerHTML = nums[i];
-    // }
   },
   printCount () {
     const selectedSum =  document.querySelector('.count_sum');
@@ -91,7 +55,7 @@ const lotto = {
     const remain = document.querySelector('.count_remain');
 
     selectedSum.innerHTML = this.SELECTED_BALL +'개'
-    current.innerHTML = (this.isReset ? 0  : this.howManyPick ) +'개'
+    current.innerHTML = this.howManyPick  +'개'
     remain.innerHTML =  this.REMAIN_BALL + '개'
   },
   createNumber() {
@@ -117,7 +81,6 @@ const lotto = {
       }
     });
     nums.sort((a, b) => a - b );
-    console.log(nums)
     return nums;
   },
   getFormatDate (date) {
@@ -169,8 +132,10 @@ const lotto = {
   init() {
     const btn = this.btn;
     const multiBtn = this.multiBtn;
-
-
+    const countDecideBtn = this.countDecideBtn;
+    const input = this.input;
+    input.addEventListener('change',this.inputChangeHandler.bind(this))
+    countDecideBtn.addEventListener('click',this.countDecideHandler.bind(this))
     btn.addEventListener('click', () => {
       this.printNumber();
       // this.printCount()
