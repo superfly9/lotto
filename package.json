@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/superfly9/lotto/issues"
   },
-  "homepage": "https://github.com/superfly9/lotto#readme"
+  "homepage": "https://github.com/superfly9/lotto#readme",
+  "dependencies": {
+    "live-server": "^1.2.2"
+  }
 }

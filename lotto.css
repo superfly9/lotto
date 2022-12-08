@@ -126,6 +126,12 @@ table {
 }
 
 /* lotto.css */
+@font-face {
+  font-family: 'EliceDigitalBaeum-Bd';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_elice@1.0/EliceDigitalBaeum-Bd.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+};
 #content {
   position: relative;
   max-width: 960px;
@@ -140,8 +146,13 @@ table {
 }
 .title {
   font-size: 50px;
+  font-family: EliceDigitalBaeum-Bd;
   font-weight: bold;
   text-align: center;
+}
+.lotto_slide {
+  padding:100px 50px;
+  margin:0 auto;
 }
 .lotto_slide .slide_item {
   display: none;
@@ -157,6 +168,24 @@ table {
   to {
     opacity: 1;
   }
+}
+.how_many_ball{
+  display:flex;
+  flex-direction: column;
+  width:30%;
+  text-align: center;
+  margin:30px auto;
+  font-family: EliceDigitalBaeum-Bd;
+}
+.how_many_ball label{
+  margin-bottom:20px;
+}
+.how_many_ball input {
+  padding:10px;
+}
+.how_many_ball button{
+  margin-top:5px;
+  font-family: EliceDigitalBaeum-Bd;
 }
 .lotto_slide .btn_change {
   position: absolute;
@@ -179,7 +208,7 @@ table {
   background-size: cover;
 }
 .number_view {
-  margin-top: 30px;
+  margin-top: 50px;
   padding: 30px 5%;
   border: 1px solid #54469b;
   border-radius: 15px;
@@ -198,6 +227,10 @@ table {
   color: #fff;
   line-height: 52px;
   text-align: center;
+  transition: all .2s ease-in-out;
+}
+.number_list li:hover{
+  transform: scale(1.2); /* Equal to scaleX(0.7) scaleY(0.7) */
 }
 .number_list li:first-child {
   background-color: #ed634b;
@@ -315,7 +348,6 @@ table {
 }
 
 .btn_box {
-  margin-top: 80px;
   text-align: center;
 }
 .btn_create {
