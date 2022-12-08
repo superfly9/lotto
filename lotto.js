@@ -33,6 +33,7 @@ const lotto = {
     }
   },
   printNumber() {
+    if (this.input.value.trim() === '') return alert('뽑을 갯수를 정해주세요')
     const nums = this.createNumber();
     const target = document.querySelector('.number_list');
     const printTarget = [...target.children];
