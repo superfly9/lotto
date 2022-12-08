@@ -264,14 +264,14 @@ table {
   background-color: #f4cd1e;
 }
 .number_list.play li {
-  animation: rotateNumber 3s ease;
+  animation: rotateNumber 7s ease;
 }
 @keyframes rotateNumber {
   from {
     transform: rotateY(0);
   }
   to {
-    transform: rotateY(360deg);
+    transform: rotateY(1080deg);
   }
 }
 
@@ -288,7 +288,7 @@ table {
   box-sizing: border-box;
 }
 .lotto_paper.play {
-  animation: rotateNumber 3s ease;
+  animation: rotateNumber 5s ease;
 }
 .lotto_paper .paper_head {
   text-align: center;

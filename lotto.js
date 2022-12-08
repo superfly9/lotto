@@ -34,20 +34,16 @@ const lotto = {
   },
   printNumber() {
     const nums = this.createNumber();
-
     const target = document.querySelector('.number_list');
-    // const target2 = document.querySelector('.js-only-paper .game_item');
     const printTarget = [...target.children];
-    // const paperTarget = [...target2.children];
-    printTarget.forEach((item, index) => {item.innerHTML = nums[index]});
-
+    
+    printTarget.forEach(item=> {item.innerHTML = '?'});
     target.classList.add('play');
-    // document.querySelector('.js-only-paper').classList.add('play');
     const id = setTimeout(() => {
       target.classList.remove('play');
-      // document.querySelector('.js-only-paper').classList.remove('play');
       clearTimeout(id)
-    },3000);
+      printTarget.forEach((item, index) => {item.innerHTML = nums[index]});
+    },7000);
   },
   printCount () {
     const selectedSum =  document.querySelector('.count_sum');
@@ -119,7 +115,7 @@ const lotto = {
     document.querySelector('.js-multi-paper').classList.add('play');
     setTimeout(() => {
       document.querySelector('.js-multi-paper').classList.remove('play');
-    },3000);
+    },5000);
 
     paperTarget.forEach((item, index, arr) => {
       let printTarget = [...item.children]
@@ -131,20 +127,13 @@ const lotto = {
   },
   init() {
     const btn = this.btn;
-    const multiBtn = this.multiBtn;
     const countDecideBtn = this.countDecideBtn;
     const input = this.input;
-    input.addEventListener('change',this.inputChangeHandler.bind(this))
-    countDecideBtn.addEventListener('click',this.countDecideHandler.bind(this))
     btn.addEventListener('click', () => {
       this.printNumber();
-      // this.printCount()
-      // this.printDate('.publish_date');
     });
-    // multiBtn.addEventListener('click', () => {
-    //   this.printMultiNumber();
-    //   this.printDate('.publish_date2');
-    // });
+    input.addEventListener('change',this.inputChangeHandler.bind(this))
+    countDecideBtn.addEventListener('click',this.countDecideHandler.bind(this))
   }
 };
 function slideChange() {
@@ -169,14 +158,5 @@ function slideChange() {
     nextBtn.classList.remove('hide');
   }
 }
-const lottoSlide = () => {
-  const nextBtn = document.getElementById('js-slide-next');
-  const prevBtn = document.getElementById('js-slide-prev');
-
-  nextBtn.addEventListener('click', slideChange);
-  prevBtn.addEventListener('click', slideChange);
-  
-};
 
 lotto.init();
-// lottoSlide();
